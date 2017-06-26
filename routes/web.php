@@ -34,8 +34,12 @@ Route::get('admin/table','Admin\PatterController@table');
 Route::get('admin/typography','Admin\PatterController@typography');
 Route::get('admin/widgets','Admin\PatterController@widgets');
 
-//添加文章
+//加载添加文章页面
 Route::get('admin/article/addarticle','Admin\ArticleController@addArticle');
+//添加文章
 Route::post('admin/article/newarticle','Admin\ArticleController@newArticle');
+//文章列表
 Route::get('admin/article/articleList','Admin\ArticleController@articleList');
+//删除文章
+Route::post('admin/article/articleDel','Admin\ArticleController@articleDel');
 /*---------------博客后台-end---------------*/

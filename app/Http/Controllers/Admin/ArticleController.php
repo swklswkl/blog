@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
+
     //添加文章
     public function addArticle(){
 
         return view('admin.addarticle');
 
     }
-
 
     /**
      * TODO:添加文章
@@ -49,6 +49,11 @@ class ArticleController extends Controller
             return $this->jsonError('401','请完善文章信息.');
         }
     }
+
+    /**
+     * TODO:后台文章列表
+     * @return $this
+     */
     public function articleList()
     {
         $article = new Articles();
@@ -56,4 +61,24 @@ class ArticleController extends Controller
         return view('admin.articleList')->with('data',$data);
     }
 
+    public function articleDel(Request $request)
+    {
+        try{
+            DB::beginTransaction();
+            $this->validate($request,[
+                'id'=>'required',
+            ]);
+            $article = new Articles();
+            $id= $request->input('id');
+            if($article::find($id)->delete()){
+                DB::commit();
+                return $this->jsonSuccess('删除成功.');
+            }
+
+        }catch (\ Exception $e){
+            DB::rollback();
+            return $this->jsonError('401','删除失败');
+        }
+
+    }
 }

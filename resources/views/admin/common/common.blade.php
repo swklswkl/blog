@@ -54,7 +54,7 @@
     <script type="text/javascript" src="{{asset('admin/plugins/jquery.mousewheel.js')}}"></script>
     <script type="text/javascript" src="{{asset('admin/plugins/spinner/ui.spinner.js')}}"></script>
     <script type="text/javascript" src="{{asset('admin/js/jquery-ui.js')}}"></script>
-
+    <script type="text/javascript" src="{{asset('admin/plugins/layer/layer.js')}}"></script>
 
     <script type="text/javascript" src="{{asset('admin/js/mws.js')}}"></script>
     <script type="text/javascript" src="{{asset('admin/js/demo.js')}}"></script>
